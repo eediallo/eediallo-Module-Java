@@ -12,5 +12,10 @@ Fix the error and re-run the program
 public class Main {
     public static void main(String[] args) {
         String fullName = "Micheal Jones";
+
+        System.out.println(fullName);
+
+        // compilation error : ';' expected
+
     }
 }
