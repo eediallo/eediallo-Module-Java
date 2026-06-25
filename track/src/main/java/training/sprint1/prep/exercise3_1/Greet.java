@@ -12,7 +12,12 @@ Explain each part of the method signature for the name method.
 * */
 
 public class Greet {
-    private String greetUser(String name){
+    // private => access modifier which makes this method only callable within the Greet class
+    // String => return type, means method return a text
+    // greetUser => method identifier, once called execute logic within it.
+    // String name => param list, means method takes one argument of type string (text)
+    // return => return value text
+    private String greetUser(String name) {
         return "Hello, " + name + "!";
     }
 
