@@ -34,4 +34,11 @@ public class Main {
 
     }
 
+    /** JAVA                         vs                           JavaScript
+     * *********************************************************************
+     1. System.out.println()                                      console.log()
+     2. int  i = 0                                                 let i = 0
+     3. arg => int num                                            arg => num;
+     4. ==                                                          ===
+     **/
 }
