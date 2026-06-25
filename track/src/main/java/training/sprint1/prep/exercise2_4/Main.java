@@ -39,3 +39,7 @@ public class Main {
         Main.printNameOfDay(7); // Sunday
     }
 }
+/*
+Java enforces identical data types for the expression and all case labels at compile time,
+whereas JavaScript allows you to evaluate any combination of data types inside the same blockt at runtime.
+* */
