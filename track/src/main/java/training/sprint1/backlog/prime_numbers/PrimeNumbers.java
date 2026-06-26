@@ -9,7 +9,13 @@ package training.sprint1.backlog.prime_numbers;
 
 public class PrimeNumbers {
     /**
-     * Check whether a given int is a prime number ( a whole number greater than 1 that has exactly two factors: 1 and itself)
+     * Checks if a divisor is a perfect factor of a target number.
+     * */
+    private boolean isFactor(int target, int divisor){
+        return target % divisor == 0;
+    }
+    /**
+     * Checks whether a given int is a prime number ( a whole number greater than 1 that has exactly two factors: 1 and itself)
      *
      * @param num the whole number to check
      * @return a boolean value, true if prime, false otherwise.
@@ -18,11 +24,11 @@ public class PrimeNumbers {
     private boolean isPrime(int num) {
         if (num <= 1) return false;
         if (num == 2) return true;
-        if (num % 2 == 0) return false;
+        if (isFactor(num, 2)) return false;
 
         int factor = 3;
         while (factor * factor <= num) {
-            if (num % factor == 0) return false;
+            if (isFactor(num, factor)) return false;
             factor += 2;
         }
         return true;
