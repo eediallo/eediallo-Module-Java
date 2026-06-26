@@ -10,10 +10,12 @@ package training.sprint1.backlog.prime_numbers;
 public class PrimeNumbers {
     /**
      * Checks if a divisor is a perfect factor of a target number.
-     * */
-    private boolean isFactor(int target, int divisor){
+     *
+     */
+    private boolean isFactor(int target, int divisor) {
         return target % divisor == 0;
     }
+
     /**
      * Checks whether a given int is a prime number ( a whole number greater than 1 that has exactly two factors: 1 and itself)
      *
@@ -24,12 +26,12 @@ public class PrimeNumbers {
     private boolean isPrime(int num) {
         if (num <= 1) return false;
         if (num == 2) return true;
-        if (isFactor(num, 2)) return false;
+        if (isFactor(num, 2)) return false; // even numbers are not prime numbers
 
         int factor = 3;
         while (factor * factor <= num) {
             if (isFactor(num, factor)) return false;
-            factor += 2;
+            factor += 2; // make sure we only check odd numbers.
         }
         return true;
     }
