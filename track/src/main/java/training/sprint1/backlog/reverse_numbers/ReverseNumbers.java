@@ -11,14 +11,14 @@ public class ReverseNumbers {
     private int reverseNumber(int num) {
         String numStr = String.valueOf(num);
 
-        String reverseNumStr = "";
+        StringBuilder reverseNumStr = new StringBuilder();
 
         for (int i = numStr.length() - 1; i >= 0; i--) {
-            reverseNumStr += numStr.charAt(i);
+            reverseNumStr.append(numStr.charAt(i));
         }
 
         System.out.println(reverseNumStr);
-        return Integer.valueOf(reverseNumStr);
+        return Integer.valueOf(reverseNumStr.toString());
     }
 
     static void main(String[] args) {
