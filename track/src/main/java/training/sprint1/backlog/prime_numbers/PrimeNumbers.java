@@ -27,4 +27,16 @@ public class PrimeNumbers {
         }
         return true;
     }
+
+    private void printPrimeNumbersUpTo1000() {
+        for (int i = 1; i <= 1000; i++) {
+            if (this.isPrime(i)) {
+                System.out.println(i);
+            }
+        }
+    }
+
+    static void main(String[] args) {
+        new PrimeNumbers().printPrimeNumbersUpTo1000();
+    }
 }
