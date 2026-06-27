@@ -8,6 +8,14 @@ package training.sprint1.backlog.reverse_numbers;
  */
 
 public class NumberReverser {
+    /**
+     * reverses the digits of an integer using Math.log10 to determine loop count.
+     *
+     * @param num The integer to be reversed
+     * @return The reversed integer
+     * @implNote this method assumes that the input fits within
+     * the integer boundaries and does not account for overflow with Integer.MAX_VALUE.
+     * */
     private int reverseInteger(int num) {
        int reversed = 0;
 
