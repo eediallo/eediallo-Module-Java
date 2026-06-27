@@ -9,21 +9,23 @@ package training.sprint1.backlog.reverse_numbers;
 
 public class ReverseNumbers {
     private int reverseNumber(int num) {
-        String numStr = String.valueOf(num);
+       int reversed = 0;
 
-        StringBuilder reverseNumStr = new StringBuilder();
+       int digitCount = (int) Math.log10(Math.abs(num)) + 1;
 
-        for (int i = numStr.length() - 1; i >= 0; i--) {
-            reverseNumStr.append(numStr.charAt(i));
-        }
+       for(int i = 0; i < digitCount; i++){
+           int lastDigit = num % 10;
+           reversed = (reversed * 10) + lastDigit;
+           num = num / 10;
+       }
 
-        System.out.println(reverseNumStr);
-        return Integer.valueOf(reverseNumStr.toString());
+       return (num < 0) ?  -reversed : reversed;
     }
 
     static void main(String[] args) {
-        new ReverseNumbers().reverseNumber(12345);
-        new ReverseNumbers().reverseNumber(3956);
+       ReverseNumbers reverseNumbers=   new ReverseNumbers();
+        int reversedNumber = reverseNumbers.reverseNumber(-123);
+       System.out.println(reversedNumber);
 
     }
 }
