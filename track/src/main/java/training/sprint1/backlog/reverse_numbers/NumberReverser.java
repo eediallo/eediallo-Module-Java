@@ -7,8 +7,8 @@ package training.sprint1.backlog.reverse_numbers;
  *
  */
 
-public class ReverseNumbers {
-    private int reverseNumber(int num) {
+public class NumberReverser {
+    private int reverseInteger(int num) {
        int reversed = 0;
 
        int digitCount = (int) Math.log10(Math.abs(num)) + 1;
@@ -23,9 +23,10 @@ public class ReverseNumbers {
     }
 
     static void main(String[] args) {
-       ReverseNumbers reverseNumbers=   new ReverseNumbers();
-        int reversedNumber = reverseNumbers.reverseNumber(-123);
+       NumberReverser reverseNumbers=   new NumberReverser();
+       int reversedNumber = reverseNumbers.reverseInteger(-123);
+       int reversedNumber1 = reverseNumbers.reverseInteger(0);
        System.out.println(reversedNumber);
-
+       System.out.println(reversedNumber1);
     }
 }
