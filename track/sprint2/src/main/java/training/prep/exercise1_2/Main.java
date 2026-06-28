@@ -20,7 +20,7 @@ import training.prep.exercise1_1.Product;
 public class Main {
     static void main(String[] args) {
         Product p1 = new Product("Laptop", 900);
-        Product p2 = p1;
+        Product p2 = new Product("Laptop", 900);
         p2.setPrice(1100);
         System.out.println(p1.getPrice());//1100
         System.out.println(p2.getPrice()); // 1100
