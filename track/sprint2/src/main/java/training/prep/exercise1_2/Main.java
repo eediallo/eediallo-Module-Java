@@ -22,7 +22,7 @@ public class Main {
         Product p1 = new Product("Laptop", 900);
         Product p2 = new Product("Laptop", 900);
         p2.setPrice(1100);
-        System.out.println(p1.getPrice());//1100
+        System.out.println(p1.getPrice());// 900
         System.out.println(p2.getPrice()); // 1100
     }
 }
