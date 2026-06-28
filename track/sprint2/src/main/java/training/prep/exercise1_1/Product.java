@@ -46,6 +46,18 @@ public class Product {
         return stockAccount;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public void setStockAccount(int stockAccount) {
+        this.stockAccount = stockAccount;
+    }
+
     @Override
     public String toString() {
         return "Product{" +
