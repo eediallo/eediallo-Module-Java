@@ -25,8 +25,7 @@ public class Product {
     private int stockAccount;
 
     public Product(String name, double price) {
-        this.name = name;
-        this.price = price;
+        this(name, price, 0);
     }
 
     public Product(String name, double price, int stockAccount) {
