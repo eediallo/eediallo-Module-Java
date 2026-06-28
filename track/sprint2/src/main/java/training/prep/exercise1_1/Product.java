@@ -20,20 +20,20 @@ Create several products and print them, then modify your first constructor so th
 * */
 
 public class Product {
-  private String name;
-  private double price;
-  private int stockAccount;
+    private String name;
+    private double price;
+    private int stockAccount;
 
-  public Product(String name){
-      this.name = name;
-      this.stockAccount = 0;
-  }
+    public Product(String name, double price) {
+        this.name = name;
+        this.price = price;
+    }
 
-  public Product(String name, double price, int stockAccount){
-      this.name = name;
-      this.price = price;
-      this.stockAccount = stockAccount;
-  }
+    public Product(String name, double price, int stockAccount) {
+        this.name = name;
+        this.price = price;
+        this.stockAccount = stockAccount;
+    }
 
     public String getName() {
         return name;
@@ -54,5 +54,12 @@ public class Product {
                 ", price=" + price +
                 ", stockAccount=" + stockAccount +
                 '}';
+    }
+
+    static void main(String[] args) {
+        Product p1 = new Product("EDA-1", 55.34);
+        Product p2 = new Product("EDA2", 99.99, 23948783);
+        System.out.println("Product 1: " + p1);
+        System.out.println("Product 2: " + p2);
     }
 }
