@@ -6,11 +6,9 @@ package training.sprint1.backlog.prime_numbers;
  * from a main method. Remember to use sensible method and variable names,
  * and add documentation where necessary! Remember to use the debugger if something goes wrong!
  */
-
 public class PrimeNumbers {
     /**
      * Checks if a divisor is a perfect factor of a target number.
-     *
      */
     private boolean isFactor(int target, int divisor) {
         return target % divisor == 0;
@@ -21,7 +19,6 @@ public class PrimeNumbers {
      *
      * @param num the whole number to check
      * @return a boolean value, true if prime, false otherwise.
-     *
      */
     private boolean isPrime(int num) {
         if (num <= 1) return false;
