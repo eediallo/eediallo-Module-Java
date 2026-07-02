@@ -25,12 +25,12 @@ public class NumberReverser {
             num = num / 10;
         }
 
-        return (num < 0) ? -reversed : reversed;
+        return reversed;
     }
 
     public static void main(String[] args) {
         NumberReverser reverseNumbers = new NumberReverser();
-        int reversedNumber = reverseNumbers.reverseInteger(-123);
+        int reversedNumber = reverseNumbers.reverseInteger(-994994);
         int reversedNumber1 = reverseNumbers.reverseInteger(0);
         System.out.println(reversedNumber);
         System.out.println(reversedNumber1);
