@@ -28,7 +28,7 @@ public class NumberReverser {
         return (num < 0) ? -reversed : reversed;
     }
 
-    static void main(String[] args) {
+    public static void main(String[] args) {
         NumberReverser reverseNumbers = new NumberReverser();
         int reversedNumber = reverseNumbers.reverseInteger(-123);
         int reversedNumber1 = reverseNumbers.reverseInteger(0);
