@@ -23,12 +23,12 @@ public class PrimeNumbers {
     private boolean isPrime(int num) {
         if (num <= 1) return false;
         if (num == 2) return true;
-        if (isFactor(num, 2)) return false; // even numbers are not prime numbers
+        if (isFactor(num, 2)) return false; // even numbers are not prime numbers a part from 2.
 
         int factor = 3;
         while (factor * factor <= num) {
             if (isFactor(num, factor)) return false;
-            factor += 2; // make sure we only check odd numbers.
+            factor += 2; // make sure we only check odd numbers
         }
         return true;
     }
