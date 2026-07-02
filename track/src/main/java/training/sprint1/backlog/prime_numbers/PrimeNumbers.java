@@ -35,7 +35,7 @@ public class PrimeNumbers {
 
     private void printPrimeNumbersUpTo1000() {
         for (int i = 1; i <= 1000; i++) {
-            if (this.isPrime(i)) {
+            if (isPrime(i)) {
                 System.out.println(i);
             }
         }
