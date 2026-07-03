@@ -1,24 +1,23 @@
 package training.prep.exercise1_1;
 
-/*
-* Exercise 1.1 - Product Class
-Create a Product class with:
-
-Fields: name, price, stockCount
-
-Getters and setters for each field
-
-A toString method that includes each of the fields
-
-Two constructors:
-
-Name and price only, defaulting stockCount to 0
-
-Name, price and stock
-
-Create several products and print them, then modify your first constructor so that it takes advantage of constructor chaining.
-* */
-
+/**
+ * Exercise 1.1 - Product Class
+ * Create a Product class with:
+ * <p>
+ * Fields: name, price, stockCount
+ * <p>
+ * Getters and setters for each field
+ * <p>
+ * A toString method that includes each of the fields
+ * <p>
+ * Two constructors:
+ * <p>
+ * Name and price only, defaulting stockCount to 0
+ * <p>
+ * Name, price and stock
+ * <p>
+ * Create several products and print them, then modify your first constructor so that it takes advantage of constructor chaining.
+ */
 public class Product {
     private String name;
     private double price;
