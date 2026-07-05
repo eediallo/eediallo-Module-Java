@@ -1,16 +1,15 @@
 package training.sprint1.prep.exercise2_1;
 
-/*
-* ✍️Exercise 2.1
-Goal: Practice basic syntax and keywords.
-
-Create a program that:
-
-Declares variables of different primitive types (int, double, boolean, char).
-Prints their values to the console.
-Add comments explaining what each keyword does (e.g., public, static, void).
-* */
-
+/**
+ * ✍️Exercise 2.1
+ * Goal: Practice basic syntax and keywords.
+ * <p>
+ * Create a program that:
+ * <p>
+ * Declares variables of different primitive types (int, double, boolean, char).
+ * Prints their values to the console.
+ * Add comments explaining what each keyword does (e.g., public, static, void).
+ */
 public class Main {
     public static void main(String[] args) {
         int numberOfTrainees = 100;

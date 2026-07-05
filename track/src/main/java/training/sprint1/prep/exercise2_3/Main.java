@@ -1,16 +1,15 @@
 package training.sprint1.prep.exercise2_3;
 
-/*
-* ✍️Exercise 2.3
-Goal: Compare Java control flow with JavaScript.
-
-Write a program that:
-
-Uses a for loop to print numbers 1 to 10.
-Uses an if-else statement to check if a number is even or odd.
-Bonus: Rewrite the same logic in JavaScript and note the differences in syntax.
-* */
-
+/**
+ * ✍️Exercise 2.3
+ * Goal: Compare Java control flow with JavaScript.
+ * <p>
+ * Write a program that:
+ * <p>
+ * Uses a for loop to print numbers 1 to 10.
+ * Uses an if-else statement to check if a number is even or odd.
+ * Bonus: Rewrite the same logic in JavaScript and note the differences in syntax.
+ */
 public class Main {
 
     public static void printNumbers1To10() {

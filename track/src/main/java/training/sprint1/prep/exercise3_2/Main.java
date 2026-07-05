@@ -1,11 +1,10 @@
 package training.sprint1.prep.exercise3_2;
 
-/*
-* ✍️Exercise 3.2
-Create a method calculateSum that takes two integers and returns their sum.
-Add JavaDoc comments explaining the method.
-* */
-
+/**
+ * ✍️Exercise 3.2
+ * Create a method calculateSum that takes two integers and returns their sum.
+ * Add JavaDoc comments explaining the method.
+ */
 public class Main {
 
     /**

@@ -1,11 +1,10 @@
 package training.sprint1.prep.exercise2_4;
 
-/*
-* ✍️Exercise 2.4
-Write a program that uses a switch statement to print the name of the day based on an integer (1 = Monday, etc.).
-Explain why switch in Java differs from JavaScript (e.g. type safety).
-* */
-
+/**
+ * ✍️Exercise 2.4
+ * Write a program that uses a switch statement to print the name of the day based on an integer (1 = Monday, etc.).
+ * Explain why switch in Java differs from JavaScript (e.g. type safety).
+ */
 public class Main {
 
     public static void printNameOfDay(int day) {
