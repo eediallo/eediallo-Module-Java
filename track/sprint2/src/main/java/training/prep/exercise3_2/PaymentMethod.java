@@ -1,8 +1,5 @@
 package training.prep.exercise3_2;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * ✍️Exercise 3.2 - Overloading vs Overriding
  * Starting with:
@@ -42,26 +39,6 @@ class DirectDebit extends PaymentMethod {
     }
 }
 
-class Money {
-    private final double amount;
-    private final String currency;
-
-    public Money(double amount, String currency) {
-        this.amount = amount;
-        this.currency = currency;
-    }
-
-    public double getAmount() {
-        return amount;
-    }
-
-    public String getCurrency() {
-        return currency;
-    }
-
-
-}
-
 class Main {
     public static void main(String[] args) {
         PaymentMethod paymentMethod = new PaymentMethod();
@@ -71,16 +48,5 @@ class Main {
         DirectDebit directDebit = new DirectDebit();
         directDebit.pay(300);
         directDebit.pay(400, "$");
-
-        final List<String> items = new ArrayList<>();
-        System.out.println(items.size() + "<=========");
-        items.add("Banana");
-        System.out.println(items.size());
-        //========
-
-
-        Money myMoney = new Money(120000.0, "£");
-        System.out.println(myMoney.getAmount());
-        System.out.println(myMoney.getCurrency());
     }
 }
