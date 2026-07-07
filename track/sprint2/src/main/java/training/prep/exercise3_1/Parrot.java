@@ -5,7 +5,8 @@ public class Parrot extends Animal {
         super(name);
     }
 
-    public void squawk() {
+    @Override
+    public void makeSound() {
         System.out.println(getName() + " is squawking!!!");
     }
 }

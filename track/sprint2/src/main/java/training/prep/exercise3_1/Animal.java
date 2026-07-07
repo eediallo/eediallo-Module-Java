@@ -30,4 +30,8 @@ public class Animal {
     public String getName() {
         return name;
     }
+
+    public void makeSound(){
+        System.out.println(getName() + " is shouting");
+    }
 }
