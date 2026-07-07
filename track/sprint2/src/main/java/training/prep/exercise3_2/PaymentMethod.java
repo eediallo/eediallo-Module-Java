@@ -20,12 +20,12 @@ package training.prep.exercise3_2;
  * Override pay(double amount)
  * Instantiate a DirectDebit class and call both methods of pay
  */
-class PaymentMethod {
-    void pay(double amount) {
+public class PaymentMethod {
+    public void pay(double amount) {
         System.out.println("Paying " + amount);
     }
 
-    void pay(double amount, String currency) {
+    public void pay(double amount, String currency) {
         System.out.println("Paying " + currency + amount);
     }
 
@@ -34,7 +34,7 @@ class PaymentMethod {
 
 class DirectDebit extends PaymentMethod {
     @Override
-    void pay(double amount) {
+    public void pay(double amount) {
         System.out.println("Paying Direct Debit " + amount);
     }
 }
