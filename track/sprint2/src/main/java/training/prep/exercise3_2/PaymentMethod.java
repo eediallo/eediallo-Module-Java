@@ -25,13 +25,28 @@ class PaymentMethod {
         System.out.println("Paying " + amount);
     }
 
-    void pay(double amount, String currency){
+    void pay(double amount, String currency) {
         System.out.println("Paying " + currency + amount);
     }
 
+}
+
+
+class DirectDebit extends PaymentMethod {
+    @Override
+    void pay(double amount) {
+        System.out.println("Paying Direct Debit " + amount);
+    }
+}
+
+class Main {
     public static void main(String[] args) {
         PaymentMethod paymentMethod = new PaymentMethod();
         paymentMethod.pay(100.0);
         paymentMethod.pay(200.0, "£");
+        System.out.println("==============");
+        DirectDebit directDebit = new DirectDebit();
+        directDebit.pay(300);
+        directDebit.pay(400, "$");
     }
 }
