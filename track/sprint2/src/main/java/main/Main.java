@@ -2,9 +2,12 @@ package main;
 
 import management.TaskManager;
 import tasks.Task;
+import tasks.TimedTask;
 
 public class Main {
-    public static void main(String[] args) {
+
+    public static void generalTasksDemo() {
+        System.out.println("*****************GENERAL TASK*****************");
         TaskManager taskManager = new TaskManager(10);
         taskManager.addTask(new Task("Going to the Gym"));
         taskManager.addTask(new Task("Do homework"));
@@ -17,21 +20,60 @@ public class Main {
         taskManager.addTask(new Task("Volunteer at CYF"));
         taskManager.addTask(new Task("Wash the dishes"));
 
-        System.out.println("----Completing task 1 to 5------");
+        System.out.println("----Completing General task 1 to 5------");
         for (int i = 1; i <= 5; i++) {
             taskManager.completeTask(i);
         }
 
-        System.out.println("====Completed tasks========");
+        System.out.println("====Completed General tasks========");
         Task[] completeTasks = taskManager.getTasksByStatus(true);
         for (Task t : completeTasks) {
             System.out.println(t.getStatus());
         }
 
-        System.out.println("===Incompleted tasks=======");
+        System.out.println("===Incompleted General tasks=======");
         Task[] incompleteTasks = taskManager.getTasksByStatus(false);
         for (Task t : incompleteTasks) {
             System.out.println(t.getStatus());
         }
+    }
+
+    public static void timedTasksDemo() {
+        TaskManager taskManager = new TaskManager(10);
+        System.out.println("*****************TIMED TASK*****************");
+        taskManager.addTask(new TimedTask("Call school", "06/07/2026"));
+        taskManager.addTask(new TimedTask("Do laundering", "06/07/2026"));
+        taskManager.addTask(new TimedTask("Update notebook", "06/07/2026"));
+        taskManager.addTask(new TimedTask("Make a plan", "06/07/2026"));
+        taskManager.addTask(new TimedTask("Send money", "06/07/2026"));
+        taskManager.addTask(new TimedTask("Call Micheal", "06/07/2026"));
+        taskManager.addTask(new TimedTask("Attend catch meeting", "06/07/2026"));
+        taskManager.addTask(new TimedTask("Fix registration bug", "06/07/2026"));
+        taskManager.addTask(new TimedTask("Confirm project completion", "06/07/2026"));
+        taskManager.addTask(new TimedTask("Hang out with friends", "06/07/2026"));
+
+        System.out.println("----Completing timed task 11 to 15------");
+        for (int i = 11; i <= 15; i++) {
+            taskManager.completeTask(i);
+        }
+
+        System.out.println("====Completed timed tasks========");
+        Task[] timedCompleteTasks = taskManager.getTasksByStatus(true);
+        for (Task t : timedCompleteTasks) {
+            System.out.println(t.getStatus());
+        }
+
+        System.out.println("===Incompleted timed tasks=======");
+        Task[] timedIncompleteTasks = taskManager.getTasksByStatus(false);
+        for (Task t : timedIncompleteTasks) {
+            System.out.println(t.getStatus());
+        }
+
+    }
+
+
+    public static void main(String[] args) {
+        Main.generalTasksDemo();
+        Main.timedTasksDemo();
     }
 }
