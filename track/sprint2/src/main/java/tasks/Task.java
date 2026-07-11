@@ -56,36 +56,3 @@ public class Task {
     }
 }
 
-
-class TimedTask extends Task {
-    private String deadline;
-
-    public TimedTask(String description, String deadline) {
-        super(description);
-        this.deadline = deadline;
-    }
-
-
-    @Override
-    public String getStatus() {
-        return super.getStatus() + "(due by: " + deadline + ")";
-    }
-
-}
-
-
-class PriorityTask extends Task {
-    private String priority;
-
-    public PriorityTask(String description, String priority) {
-        super(description);
-        this.priority = priority;
-    }
-
-
-    @Override
-    public String getStatus() {
-        return super.getStatus() + "[Priority: " + priority + "]";
-    }
-
-}
