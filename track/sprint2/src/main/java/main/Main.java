@@ -7,8 +7,26 @@ import tasks.TimedTask;
 
 public class Main {
 
-    public static void generalTasksDemo() {
-        System.out.println("*****************GENERAL TASK*****************");
+    private void completeGivenTasks(String logMsg, TaskManager taskManager, int from, int to) {
+        System.out.println(logMsg);
+        for (int i = from; i <= to; i++) {
+            taskManager.completeTask(i);
+        }
+    }
+
+    private void printTaskStatuses(Task[] tasks) {
+        for (Task t : tasks) {
+            System.out.println(t.getStatus());
+        }
+    }
+
+    private void logTaskReport(String logMsg, TaskManager taskManager, boolean isCompleted) {
+        System.out.println(logMsg);
+        Task[] tasks = taskManager.getTasksByStatus(isCompleted);
+        printTaskStatuses(tasks);
+    }
+
+    private void generalTasksDemo() {
         TaskManager taskManager = new TaskManager(10);
         taskManager.addTask(new Task("Going to the Gym"));
         taskManager.addTask(new Task("Do homework"));
@@ -21,27 +39,14 @@ public class Main {
         taskManager.addTask(new Task("Volunteer at CYF"));
         taskManager.addTask(new Task("Wash the dishes"));
 
-        System.out.println("----Completing General task 1 to 5------");
-        for (int i = 1; i <= 5; i++) {
-            taskManager.completeTask(i);
-        }
-
-        System.out.println("====Completed General tasks========");
-        Task[] completeTasks = taskManager.getTasksByStatus(true);
-        for (Task t : completeTasks) {
-            System.out.println(t.getStatus());
-        }
-
-        System.out.println("===Incompleted General tasks=======");
-        Task[] incompleteTasks = taskManager.getTasksByStatus(false);
-        for (Task t : incompleteTasks) {
-            System.out.println(t.getStatus());
-        }
+        System.out.println("*****************GENERAL TASKS*****************");
+        completeGivenTasks("----Completing General task 1 to 5------", taskManager, 1, 5);
+        logTaskReport("====Completed General tasks========", taskManager, true);
+        logTaskReport("===Incompleted General tasks=======", taskManager, false);
     }
 
-    public static void timedTasksDemo() {
+    private void timedTasksDemo() {
         TaskManager taskManager = new TaskManager(10);
-        System.out.println("*****************TIMED TASK*****************");
         taskManager.addTask(new TimedTask("Call school", "06/07/2026"));
         taskManager.addTask(new TimedTask("Do laundering", "06/07/2026"));
         taskManager.addTask(new TimedTask("Update notebook", "06/07/2026"));
@@ -53,56 +58,30 @@ public class Main {
         taskManager.addTask(new TimedTask("Confirm project completion", "06/07/2026"));
         taskManager.addTask(new TimedTask("Hang out with friends", "06/07/2026"));
 
-        System.out.println("----Completing timed task 11 to 15------");
-        for (int i = 11; i <= 15; i++) {
-            taskManager.completeTask(i);
-        }
-
-        System.out.println("====Completed timed tasks========");
-        Task[] timedCompleteTasks = taskManager.getTasksByStatus(true);
-        for (Task t : timedCompleteTasks) {
-            System.out.println(t.getStatus());
-        }
-
-        System.out.println("===Incompleted timed tasks=======");
-        Task[] timedIncompleteTasks = taskManager.getTasksByStatus(false);
-        for (Task t : timedIncompleteTasks) {
-            System.out.println(t.getStatus());
-        }
-
+        System.out.println("*****************TIMED TASKS*****************");
+        completeGivenTasks("----Completing timed task 11 to 15------", taskManager, 11, 15);
+        logTaskReport("====Completed timed tasks========", taskManager, true);
+        logTaskReport("====Incompleted timed tasks========", taskManager, false);
 
     }
 
-    public static void priorityTasksDeno() {
-        TaskManager priorityTask = new TaskManager(5);
-        priorityTask.addTask(new PriorityTask("Watch football game", "LOW"));
-        priorityTask.addTask(new PriorityTask("Go shopping", "MEDIUM"));
-        priorityTask.addTask(new PriorityTask("Make dinner", "HIGH"));
-        priorityTask.addTask(new PriorityTask("Complete assignment", "HIGH"));
-        priorityTask.addTask(new PriorityTask("Make breakfast", "LOW"));
+    private void priorityTasksDeno() {
+        TaskManager taskManager = new TaskManager(5);
+        taskManager.addTask(new PriorityTask("Watch football game", "LOW"));
+        taskManager.addTask(new PriorityTask("Go shopping", "MEDIUM"));
+        taskManager.addTask(new PriorityTask("Make dinner", "HIGH"));
+        taskManager.addTask(new PriorityTask("Complete assignment", "HIGH"));
+        taskManager.addTask(new PriorityTask("Make breakfast", "LOW"));
 
-        System.out.println("Completing priority tasks 21 to 23....");
-        for (int i = 21; i <= 23; i++) {
-            priorityTask.completeTask(i);
-        }
-
-        System.out.println("===========Completed priority tasks=======");
-        Task[] completedPriorityTasks = priorityTask.getTasksByStatus(true);
-        for (Task pTask : completedPriorityTasks) {
-            System.out.println(pTask.getStatus());
-        }
-
-        System.out.println("===========Incompleted priority tasks=======");
-        Task[] incompletedPriorityTasks = priorityTask.getTasksByStatus(false);
-        for (Task pTask : incompletedPriorityTasks) {
-            System.out.println(pTask.getStatus());
-        }
+        System.out.println("*****************Priority TASKS*****************");
+        completeGivenTasks("Completing priority tasks 21 to 23....", taskManager, 21, 23);
+        logTaskReport("===========Completed priority tasks=======", taskManager, true);
+        logTaskReport("===========Incompleted priority tasks=======", taskManager, false);
     }
-
 
     public static void main(String[] args) {
-        Main.generalTasksDemo();
-        Main.timedTasksDemo();
-        Main.priorityTasksDeno();
+        new Main().generalTasksDemo();
+        new Main().timedTasksDemo();
+        new Main().priorityTasksDeno();
     }
 }
