@@ -1,9 +1,7 @@
 package main;
 
 import management.TaskManager;
-import tasks.PriorityTask;
-import tasks.Task;
-import tasks.TimedTask;
+import tasks.*;
 
 public class Main {
 
