@@ -1,6 +1,7 @@
 package main;
 
 import management.TaskManager;
+import tasks.PriorityTask;
 import tasks.Task;
 import tasks.TimedTask;
 
@@ -69,11 +70,39 @@ public class Main {
             System.out.println(t.getStatus());
         }
 
+
+    }
+
+    public static void priorityTasksDeno() {
+        TaskManager priorityTask = new TaskManager(5);
+        priorityTask.addTask(new PriorityTask("Watch football game", "LOW"));
+        priorityTask.addTask(new PriorityTask("Go shopping", "MEDIUM"));
+        priorityTask.addTask(new PriorityTask("Make dinner", "HIGH"));
+        priorityTask.addTask(new PriorityTask("Complete assignment", "HIGH"));
+        priorityTask.addTask(new PriorityTask("Make breakfast", "LOW"));
+
+        System.out.println("Completing priority tasks 21 to 23....");
+        for (int i = 21; i <= 23; i++) {
+            priorityTask.completeTask(i);
+        }
+
+        System.out.println("===========Completed priority tasks=======");
+        Task[] completedPriorityTasks = priorityTask.getTasksByStatus(true);
+        for (Task pTask : completedPriorityTasks) {
+            System.out.println(pTask.getStatus());
+        }
+
+        System.out.println("===========Incompleted priority tasks=======");
+        Task[] incompletedPriorityTasks = priorityTask.getTasksByStatus(false);
+        for (Task pTask : incompletedPriorityTasks) {
+            System.out.println(pTask.getStatus());
+        }
     }
 
 
     public static void main(String[] args) {
         Main.generalTasksDemo();
         Main.timedTasksDemo();
+        Main.priorityTasksDeno();
     }
 }
