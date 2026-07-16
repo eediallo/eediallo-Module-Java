@@ -6,6 +6,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assumptions.*;
 
 class CalculatorTest {
 
@@ -63,8 +64,24 @@ class CalculatorTest {
         assertAll(() -> assertEquals(nums.toArray()[0], 1), () -> assertEquals(nums.toArray()[1], 2), () -> assertEquals(nums.toArray()[2], 3));
     }
 
-    public int add(int a, int b) {
-        return a + b;
+    @Test
+    void assumeTestWork() {
+        assumeTrue(5 > 1);
+        Calculator calculator = new Calculator();
+        assertEquals(12, calculator.add(6, 6));
+    }
+
+    @Test
+    void assumeTestDoesNotWork() {
+        assumeTrue(5 < 7);
+        Calculator calculator = new Calculator();
+        assertEquals(12, calculator.add(6, 6));
+    }
+
+    @Test
+    void throwAnExceptionForNullValues() {
+        Calculator calculator = new Calculator();
+        assertThrows(IllegalArgumentException.class, () -> calculator.addNumbers(null));
     }
 
     @AfterAll
