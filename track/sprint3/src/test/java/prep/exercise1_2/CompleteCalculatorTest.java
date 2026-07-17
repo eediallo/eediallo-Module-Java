@@ -23,4 +23,9 @@ class CompleteCalculatorTest {
         assertThrows(IllegalArgumentException.class, () -> completeCalculator.squareRoot(-5));
     }
 
+    @Test
+    void testSquareRootOfPositiveEvenNumber() {
+        assertEquals(5, completeCalculator.squareRoot(25));
+    }
+
 }
