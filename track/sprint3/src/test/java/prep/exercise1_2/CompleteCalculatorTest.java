@@ -28,4 +28,10 @@ class CompleteCalculatorTest {
         assertEquals(5, completeCalculator.squareRoot(25));
     }
 
+    @Test
+    void testSquareRootOfThree() {
+        // check if the answer is within 0.00001 of the expected value
+        assertEquals(1.732050, completeCalculator.squareRoot(3), 0.00001);
+    }
+
 }
