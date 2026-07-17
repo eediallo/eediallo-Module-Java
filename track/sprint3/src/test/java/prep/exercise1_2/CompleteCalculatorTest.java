@@ -9,13 +9,18 @@ class CompleteCalculatorTest {
     private CompleteCalculator completeCalculator;
 
     @BeforeEach
-    void setup(){
+    void setup() {
         completeCalculator = new CompleteCalculator();
     }
 
     @Test
-    void testSquare(){
+    void testSquare() {
         assertEquals(25, completeCalculator.square(5), "5 * 5 = 25");
+    }
+
+    @Test
+    void testSquareRootOfNegativeNumberThrows() {
+        assertThrows(IllegalArgumentException.class, () -> completeCalculator.squareRoot(-5));
     }
 
 }
