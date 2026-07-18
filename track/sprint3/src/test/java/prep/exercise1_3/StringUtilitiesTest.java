@@ -17,6 +17,10 @@ class StringUtilitiesTest {
     @Test
     void testisPalindrome() {
         assertAll(() -> assertTrue(stringUtilities.isPalindrome("civic"), "civic is a Palindrome"), () -> assertTrue(stringUtilities.isPalindrome("radar")), () -> assertTrue(stringUtilities.isPalindrome("level")), () -> stringUtilities.isPalindrome("rotor"), () -> assertTrue(stringUtilities.isPalindrome("madam")));
+    }
 
+    @Test
+    void testisNotPalindrome(){
+        assertAll(()-> assertFalse(stringUtilities.isPalindrome("solution")), () -> assertFalse(stringUtilities.isPalindrome("mental")));
     }
 }
