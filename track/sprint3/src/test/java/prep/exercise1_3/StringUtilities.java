@@ -4,15 +4,15 @@ import java.util.List;
 
 public class StringUtilities {
     public boolean isPalindrome(String s) {
-        String reversed = "";
+        StringBuilder reversed = new StringBuilder();
 
-        for(int i = s.length() - 1; i >=0 ; i--){
-            reversed += s.charAt(i);
+        for (int i = s.length() - 1; i >= 0; i--) {
+            reversed = reversed.append(s.charAt(i));
         }
 
+        return s.equals(reversed.toString());
+    }
 
-        System.out.println(reversed + " <=========");
-        return s.equals(reversed);
-    };
+    ;
 //    public List<String> splitCommaSeparatedLine(String s) { ... }
 }
