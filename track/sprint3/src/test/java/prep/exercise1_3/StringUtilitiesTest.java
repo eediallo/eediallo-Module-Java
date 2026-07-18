@@ -1,7 +1,12 @@
 package prep.exercise1_3;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DynamicTest;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestFactory;
+
+import java.util.List;
+import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -20,7 +25,14 @@ class StringUtilitiesTest {
     }
 
     @Test
-    void testisNotPalindrome(){
-        assertAll(()-> assertFalse(stringUtilities.isPalindrome("solution")), () -> assertFalse(stringUtilities.isPalindrome("mental")));
+    void testisNotPalindrome() {
+        assertAll(() -> assertFalse(stringUtilities.isPalindrome("solution")), () -> assertFalse(stringUtilities.isPalindrome("mental")));
     }
+
+    @Test
+    void testNormalCommaSeparatedLine() {
+        List<String> fruits = stringUtilities.splitCommaSeparatedLine("mango,banana,apple");
+        assertEquals(List.of("mango", "banana", "apple"), fruits);
+    }
+
 }

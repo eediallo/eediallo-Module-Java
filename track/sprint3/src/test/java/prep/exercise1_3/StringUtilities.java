@@ -1,5 +1,6 @@
 package prep.exercise1_3;
 
+import java.util.Arrays;
 import java.util.List;
 
 public class StringUtilities {
@@ -13,6 +14,11 @@ public class StringUtilities {
         return s.equals(reversed.toString());
     }
 
-    ;
-//    public List<String> splitCommaSeparatedLine(String s) { ... }
+    public List<String> splitCommaSeparatedLine(String s) {
+        String[]  strings = s.split(",");
+
+        System.out.println(strings + " <==========");
+
+        return Arrays.stream(strings).toList();
+    }
 }
