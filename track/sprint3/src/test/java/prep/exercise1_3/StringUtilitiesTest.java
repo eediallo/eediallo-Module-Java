@@ -41,4 +41,16 @@ class StringUtilitiesTest {
         assertEquals(List.of("laptop"), items);
     }
 
+    @Test
+    void testEmptyStringSplitCommaSeparatedLine() {
+        List<String> items = stringUtilities.splitCommaSeparatedLine("");
+        assertTrue(items.isEmpty());
+    }
+
+    @Test
+    void shouldThrowWhenNull() {
+        assertThrows(IllegalArgumentException.class, ()-> stringUtilities.splitCommaSeparatedLine(null));
+    }
+
+
 }

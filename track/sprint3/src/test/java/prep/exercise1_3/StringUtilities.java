@@ -15,9 +15,18 @@ public class StringUtilities {
     }
 
     public List<String> splitCommaSeparatedLine(String s) {
-        String[]  strings = s.split(",");
 
-        System.out.println(strings + " <==========");
+        if (s == null) {
+            throw new IllegalArgumentException("null is not allowed");
+        }
+
+        if (s == "") {
+            return List.of();
+        }
+
+        String[] strings = s.split(",");
+
+        System.out.println(Arrays.toString(strings));
 
         return Arrays.stream(strings).toList();
     }
