@@ -35,4 +35,10 @@ class StringUtilitiesTest {
         assertEquals(List.of("mango", "banana", "apple"), fruits);
     }
 
+    @Test
+    void testSingleItemCommaSeparatedLine() {
+        List<String> items = stringUtilities.splitCommaSeparatedLine("laptop,");
+        assertEquals(List.of("laptop"), items);
+    }
+
 }
