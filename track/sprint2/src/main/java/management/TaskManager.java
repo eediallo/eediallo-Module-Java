@@ -2,7 +2,9 @@ package management;
 
 import tasks.Task;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 /**
  * TaskManager
@@ -46,23 +48,15 @@ public class TaskManager {
         System.out.println("Task with ID " + id + " not found");
     }
 
-    public Task[] getTasksByStatus(boolean completed) {
-        int matchCount = 0;
+    public List<Task> getTasksByStatus(boolean completed) {
+        List<Task> filteredTasks = new ArrayList<>();
+
         for (int i = 0; i < taskCount; i++) {
             if (tasks[i].isCompleted() == completed) {
-                matchCount++;
+                filteredTasks.add(tasks[i]);
             }
         }
 
-        Task[] filteredTasks = new Task[matchCount];
-
-        int index = 0;
-        for (int i = 0; i < taskCount; i++) {
-            if (tasks[i].isCompleted() == completed) {
-                filteredTasks[index] = tasks[i];
-                index++;
-            }
-        }
         return filteredTasks;
     }
 

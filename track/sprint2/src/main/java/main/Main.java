@@ -3,6 +3,8 @@ package main;
 import management.TaskManager;
 import tasks.*;
 
+import java.util.List;
+
 public class Main {
 
     private void completeGivenTasks(String logMsg, TaskManager taskManager, int from, int to) {
@@ -12,7 +14,7 @@ public class Main {
         }
     }
 
-    private void printTaskStatuses(Task[] tasks) {
+    private void printTaskStatuses(List<Task> tasks) {
         for (Task t : tasks) {
             System.out.println(t.getStatus());
         }
@@ -20,7 +22,7 @@ public class Main {
 
     private void logTaskReport(String logMsg, TaskManager taskManager, boolean isCompleted) {
         System.out.println(logMsg);
-        Task[] tasks = taskManager.getTasksByStatus(isCompleted);
+        List<Task> tasks = taskManager.getTasksByStatus(isCompleted);
         printTaskStatuses(tasks);
     }
 
