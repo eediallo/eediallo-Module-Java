@@ -7,25 +7,6 @@ import java.util.List;
 
 public class Main {
 
-    private void completeGivenTasks(String logMsg, TaskManager taskManager, int from, int to) {
-        System.out.println(logMsg);
-        for (int i = from; i <= to; i++) {
-            taskManager.completeTask(i);
-        }
-    }
-
-    private void printTaskStatuses(List<Task> tasks) {
-        for (Task t : tasks) {
-            System.out.println(t.getStatus());
-        }
-    }
-
-    private void logTaskReport(String logMsg, TaskManager taskManager, boolean isCompleted) {
-        System.out.println(logMsg);
-        List<Task> tasks = taskManager.getTasksByStatus(isCompleted);
-        printTaskStatuses(tasks);
-    }
-
     private void generalTasksDemo() {
         TaskManager taskManager = new TaskManager(10);
         taskManager.addTask(new Task("Going to the Gym"));
@@ -40,9 +21,9 @@ public class Main {
         taskManager.addTask(new Task("Wash the dishes"));
 
         System.out.println("*****************GENERAL TASKS*****************");
-        completeGivenTasks("----Completing General task 1 to 5------", taskManager, 1, 5);
-        logTaskReport("====Completed General tasks========", taskManager, true);
-        logTaskReport("===Incompleted General tasks=======", taskManager, false);
+        taskManager.completeGivenTasks("----Completing General task 1 to 5------", taskManager, 1, 5);
+        taskManager.logTaskReport("====Completed General tasks========", taskManager, true);
+        taskManager.logTaskReport("===Incompleted General tasks=======", taskManager, false);
     }
 
     private void timedTasksDemo() {
@@ -59,9 +40,9 @@ public class Main {
         taskManager.addTask(new TimedTask("Hang out with friends", "06/07/2026"));
 
         System.out.println("*****************TIMED TASKS*****************");
-        completeGivenTasks("----Completing timed task 11 to 15------", taskManager, 11, 15);
-        logTaskReport("====Completed timed tasks========", taskManager, true);
-        logTaskReport("====Incompleted timed tasks========", taskManager, false);
+        taskManager.completeGivenTasks("----Completing timed task 11 to 15------", taskManager, 11, 15);
+        taskManager.logTaskReport("====Completed timed tasks========", taskManager, true);
+        taskManager.logTaskReport("====Incompleted timed tasks========", taskManager, false);
 
     }
 
@@ -74,9 +55,9 @@ public class Main {
         taskManager.addTask(new PriorityTask("Make breakfast", "LOW"));
 
         System.out.println("*****************Priority TASKS*****************");
-        completeGivenTasks("Completing priority tasks 21 to 23....", taskManager, 21, 23);
-        logTaskReport("===========Completed priority tasks=======", taskManager, true);
-        logTaskReport("===========Incompleted priority tasks=======", taskManager, false);
+        taskManager.completeGivenTasks("Completing priority tasks 21 to 23....", taskManager, 21, 23);
+        taskManager.logTaskReport("===========Completed priority tasks=======", taskManager, true);
+        taskManager.logTaskReport("===========Incompleted priority tasks=======", taskManager, false);
     }
 
     public static void main(String[] args) {

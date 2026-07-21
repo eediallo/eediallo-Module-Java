@@ -60,4 +60,23 @@ public class TaskManager {
         return filteredTasks;
     }
 
+    public void completeGivenTasks(String logMsg, TaskManager taskManager, int from, int to) {
+        System.out.println(logMsg);
+        for (int i = from; i <= to; i++) {
+            taskManager.completeTask(i);
+        }
+    }
+
+    public void printTaskStatuses(List<Task> tasks) {
+        for (Task t : tasks) {
+            System.out.println(t.getStatus());
+        }
+    }
+
+    public void logTaskReport(String logMsg, TaskManager taskManager, boolean isCompleted) {
+        System.out.println(logMsg);
+        List<Task> tasks = taskManager.getTasksByStatus(isCompleted);
+        printTaskStatuses(tasks);
+    }
+
 }
