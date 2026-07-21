@@ -35,18 +35,15 @@ public class TaskManager {
     }
 
     public void completeTask(int id) {
-        boolean found = false;
 
         for (int i = 0; i < taskCount; i++) {
             if (tasks[i].getId() == id) {
                 tasks[i].complete();
-                found = true;
+                return;
             }
         }
 
-        if (!found) {
-            System.out.println("Task with ID " + id + " not found");
-        }
+        System.out.println("Task with ID " + id + " not found");
     }
 
     public Task[] getTasksByStatus(boolean completed) {
