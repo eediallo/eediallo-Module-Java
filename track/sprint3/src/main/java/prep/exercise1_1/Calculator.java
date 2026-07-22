@@ -2,11 +2,11 @@ package prep.exercise1_1;
 
 /**
  * Provides basic arithmetic operations for integer values
- * including addition, multiplication and division.
+ * including addition, subtraction, multiplication and division.
  */
 public class Calculator {
     /**
-     * Calculates the usm of two integers.
+     * Calculates the sum of two integers.
      *
      * @param a the first integer
      * @param b second integer
@@ -16,6 +16,13 @@ public class Calculator {
         return a + b;
     }
 
+    /**
+     * Subtract two integers.
+     *
+     * @param a the first integer
+     * @param b second integer
+     * @return the arithmetic subtraction of {@code a} and {@code b}
+     */
     public int subtract(int a, int b) {
         return a - b;
     }
