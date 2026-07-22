@@ -26,6 +26,14 @@ public class TaskManager {
         this.taskCount = 0;
     }
 
+    /**
+     * Adds a task to the task manager if capacity permits.
+     * <p>
+     * If the task array is full, no task will be added and a warning message
+     * will be printed to the console.
+     *
+     * @param task the {@link Task} object to add to the manager.
+     */
     public void addTask(Task task) {
         // prevent out of bound crash
         if (taskCount >= tasks.length) {
@@ -36,6 +44,14 @@ public class TaskManager {
         taskCount++;
     }
 
+    /**
+     * Completes a specific task by its unique identifier.
+     * <p>
+     * Searches through the active tasks and marks the matching task as completed.
+     * Prints a warning message if the provided task ID is not found.
+     *
+     * @param id the unique identifier of the task to complete
+     */
     public void completeTask(int id) {
 
         for (int i = 0; i < taskCount; i++) {
@@ -48,6 +64,15 @@ public class TaskManager {
         System.out.println("Task with ID " + id + " not found");
     }
 
+    /**
+     * Gets tasks based on their completion status.
+     * <p>
+     * Searches through the active tasks to find matches and
+     * collects them into a filtered list.
+     *
+     * @param completed {@code true}  to retrieve completed tasks; {@code false} for incompleted tasks
+     * @return list of task matching the specified completion status
+     */
     public List<Task> getTasksByStatus(boolean completed) {
         List<Task> filteredTasks = new ArrayList<>();
 
