@@ -1,5 +1,7 @@
 package training.exercise1_1;
 
+import training.exercise1_2.Statement;
+
 /**
  * Core service in charge of handling customer bank deliveries.
  */
@@ -14,5 +16,9 @@ public class StatementDeliveryService {
      */
     public boolean deliverStatement(String statementContent, StatementSender statementSender) {
         return statementSender.sendStatement(statementContent);
+    }
+
+    public boolean deliverStatement(Statement statement, StatementSender statementSender) {
+        return statementSender.sendStatement(statement);
     }
 }

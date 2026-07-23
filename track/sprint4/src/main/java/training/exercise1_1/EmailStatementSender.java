@@ -1,5 +1,9 @@
 package training.exercise1_1;
 
+import training.exercise1_2.Statement;
+
+import javax.swing.plaf.nimbus.State;
+
 /**
  * Handles bank statement via Email.
  */
@@ -15,5 +19,10 @@ public class EmailStatementSender implements StatementSender {
     public boolean sendStatement(String statementContent) {
         System.out.println("[EMAIL SENT]: " + statementContent);
         return true;
+    }
+
+    @Override
+    public boolean sendStatement(Statement statement) {
+        return sendStatement(statement.formatStatementContent());
     }
 }

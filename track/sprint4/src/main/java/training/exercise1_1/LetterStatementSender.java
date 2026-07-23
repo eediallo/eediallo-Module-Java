@@ -1,5 +1,7 @@
 package training.exercise1_1;
 
+import training.exercise1_2.Statement;
+
 /**
  * Handle bank statement delivery via postal service.
  */
@@ -15,5 +17,10 @@ public class LetterStatementSender implements StatementSender {
     public boolean sendStatement(String statementContent) {
         System.out.println("LETTER SENT: " + statementContent);
         return true;
+    }
+
+    @Override
+    public boolean sendStatement(Statement statement) {
+        return sendStatement(statement.formatStatementContent());
     }
 }
