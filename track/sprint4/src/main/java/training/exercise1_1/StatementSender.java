@@ -1,5 +1,7 @@
 package training.exercise1_1;
 
+import training.exercise1_2.Statement;
+
 /**
  * Interface representing a delivery mechanism for customer bank statements.
  * <p>
@@ -15,6 +17,14 @@ public interface StatementSender {
      * @return {@code true} if the statement was successfully delivered; {@code false} otherwise
      */
     boolean sendStatement(String statementContent);
+
+    /**
+     * Dispatches a structured {@link Statement} object to a customer.
+     *
+     * @param statement the structured statement to deliver
+     * @return {@code true} if dispatch succeeded; {@code false} otherwise
+     */
+    boolean sendStatement(Statement statement);
 }
 
 
