@@ -8,9 +8,8 @@ import java.util.List;
 public class LanguagesList {
 
     // Search for an item in a list
-
-    private static <T> boolean searchForItemInList(T item, Collection<T> list){
-        if(list.contains(item)){
+    private static <T> boolean searchForItemInList(T item, Collection<T> list) {
+        if (list.contains(item)) {
             System.out.println(item + " is on the list");
             return true;
         }
@@ -52,6 +51,10 @@ public class LanguagesList {
         searchForItemInList("C++", languages);
         searchForItemInList(89, nums);
         searchForItemInList(100, nums);
+
+        languages.set(0, "TypeScript");
+
+        System.out.println("After updating element at index 0: " + languages);
 
     }
 }
