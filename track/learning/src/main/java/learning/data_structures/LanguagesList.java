@@ -31,7 +31,7 @@ public class LanguagesList {
             System.out.println(lang);
         }
 
-        List<Integer> nums = (List.of(87, 98, 293, 3883, 100));
+        List<Integer> nums = (List.of(87, 100, 98, 293, 3883, 100));
         int maxInt = Collections.max(nums);
 
         System.out.println(maxInt + "<======MAX INTEGER");
@@ -55,6 +55,11 @@ public class LanguagesList {
         languages.set(0, "TypeScript");
 
         System.out.println("After updating element at index 0: " + languages);
+
+        int indexOfFirstOccurrenceOf100 = nums.indexOf(100);
+        int indexOfLastOccurrenceOf100 = nums.lastIndexOf(100);
+        System.out.println("The first occurrence of 100 is at index: " + indexOfFirstOccurrenceOf100);
+        System.out.println("The last occurrence of 100 is at index: " + indexOfLastOccurrenceOf100);
 
     }
 }
