@@ -24,6 +24,10 @@ public class FileReaderService {
                 stringBuilder.append(line).append(System.lineSeparator());
             }
 
+            if (stringBuilder.length() == 0) {
+                throw new InvalidFileFormatException("File content must not be empty");
+            }
+
             return stringBuilder.toString();
         } catch (FileNotFoundException e) {
             System.out.println(e.getMessage());
@@ -31,6 +35,8 @@ public class FileReaderService {
         } catch (IOException e) {
             System.out.println(e.getMessage());
             throw e;
+        } catch (InvalidFileFormatException e) {
+            throw new RuntimeException(e);
         } finally {
             if (bufferedReader != null) {
                 try {
