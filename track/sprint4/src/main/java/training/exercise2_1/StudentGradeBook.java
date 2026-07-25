@@ -60,4 +60,17 @@ public class StudentGradeBook {
 
         return studentToGrade;
     }
+
+    /**
+     * Adds a student name to a single-element Collection (List, Set, etc.)
+     */
+    public void addStudentToCollection(String name, Collection<String> collection) {
+        collection.add(name);
+    }
+
+    /**
+     * Adds a student to a map using a provided value as the key and their grade as the value*/
+    public <K> void addStudentToCollection(K name, int grade, Map<K, Integer> map) {
+        map.put(name, grade);
+    }
 }

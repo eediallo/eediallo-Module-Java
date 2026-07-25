@@ -8,7 +8,7 @@ import java.util.Set;
 
 public class Main {
 
-    public static void removeStudent(){
+    public static void removeStudent() {
 
     }
 
@@ -34,24 +34,24 @@ public class Main {
         String gradeToZeroStudentLastName = "Clarke";
 
         List<String> firstNamesList = studentGradeBook.getFirstNames();
-        firstNamesList.add(newJoinerFirstName);
+        studentGradeBook.addStudentToCollection(newJoinerFirstName, firstNamesList);
         firstNamesList.remove(leftStudentFirstName);
         System.out.println("First Names: " + firstNamesList);
 
         Set<String> distinctFirstNames = studentGradeBook.getDistinctFirstNames();
-        distinctFirstNames.add(newJoinerFirstName);
+        studentGradeBook.addStudentToCollection(newJoinerFirstName, distinctFirstNames);
         distinctFirstNames.remove(leftStudentLastName);
         System.out.println("Distinct First Names: " + distinctFirstNames);
 
 
         Map<String, Integer> lastNameToGrades = studentGradeBook.getLastNameToGrade();
-        lastNameToGrades.put(newJoinerLastName, newJoinerGrade);
+        studentGradeBook.addStudentToCollection(newJoinerLastName, newJoinerGrade, lastNameToGrades);
         lastNameToGrades.remove(leftStudentLastName);
         lastNameToGrades.put(gradeToZeroStudentLastName, 0);
         System.out.println("LastName to grade: " + lastNameToGrades);
 
         Map<Student, Integer> studentToGrade = studentGradeBook.getStudentToGrade();
-        studentToGrade.put(new Student(newJoinerFirstName, newJoinerLastName), newJoinerGrade);
+        studentGradeBook.addStudentToCollection(new Student(newJoinerFirstName, newJoinerLastName), newJoinerGrade, studentToGrade);
         studentToGrade.remove(new Student(leftStudentFirstName, leftStudentLastName));
         studentToGrade.put(new Student(gradeToZeroStudentFirstName, gradeToZeroStudentLastName), 0);
         studentToGrade.forEach((student, grade) -> {
