@@ -2,9 +2,7 @@ package training.exercise2_1;
 
 import training.exercise2_2.Student;
 
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -26,7 +24,26 @@ public class Main {
         setOperationsDemo(studentGradeBook, newJoiner, leftStudent);
         lastNameMapOperationsDemo(studentGradeBook, newJoiner, newJoinerGrade, leftStudent, leftStudentGrade, gradeToZero);
         studentMapOperationsDemo(studentGradeBook, newJoiner, newJoinerGrade, leftStudent, leftStudentGrade, gradeToZero);
+        highestLowestGradeDemo(grades);
+
     }
+
+    private static void highestLowestGradeDemo(int[] grades) {
+        int highestGrade = getHighestGrade(grades);
+        System.out.println("Highest Grade: " + highestGrade + "\n");
+
+        int lowestGrade = getLowestGrade(grades);
+        System.out.println("Highest Grade: " + lowestGrade + "\n");
+    }
+
+    private static int getHighestGrade(int[] grades) {
+        return Arrays.stream(grades).max().orElse(0);
+    }
+
+    private static int getLowestGrade(int[] grades) {
+        return Arrays.stream(grades).min().orElse(0);
+    }
+
 
     private static void studentMapOperationsDemo(StudentGradeBook studentGradeBook, Student newJoiner, int newJoinerGrade, Student leftStudent, int leftStudentGrade, Student gradeToZero) {
         System.out.println("=====STUDENT MAP OPERATIONS (Student -> Grade) =====");
