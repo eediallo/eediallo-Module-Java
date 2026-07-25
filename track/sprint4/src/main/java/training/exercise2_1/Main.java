@@ -24,26 +24,17 @@ public class Main {
         setOperationsDemo(studentGradeBook, newJoiner, leftStudent);
         lastNameMapOperationsDemo(studentGradeBook, newJoiner, newJoinerGrade, leftStudent, leftStudentGrade, gradeToZero);
         studentMapOperationsDemo(studentGradeBook, newJoiner, newJoinerGrade, leftStudent, leftStudentGrade, gradeToZero);
-        highestLowestGradeDemo(studentGradeBook.getGradeList());
+        highestLowestGradeDemo(studentGradeBook);
 
     }
 
-    private static void highestLowestGradeDemo(List<Integer> gradeList) {
-        int highestGrade = getHighestGrade(gradeList);
+    private static void highestLowestGradeDemo(StudentGradeBook studentGradeBook) {
+        int highestGrade = studentGradeBook.getHighestGrade();
         System.out.println("Highest Grade: " + highestGrade + "\n");
 
-        int lowestGrade = getLowestGrade(gradeList);
+        int lowestGrade = studentGradeBook.getLowestGrade();
         System.out.println("Highest Grade: " + lowestGrade + "\n");
     }
-
-    private static int getHighestGrade(List<Integer> gradeList) {
-        return Collections.max(gradeList);
-    }
-
-    private static int getLowestGrade(List<Integer> gradeList) {
-        return Collections.min(gradeList);
-    }
-
 
     private static void studentMapOperationsDemo(StudentGradeBook studentGradeBook, Student newJoiner, int newJoinerGrade, Student leftStudent, int leftStudentGrade, Student gradeToZero) {
         System.out.println("=====STUDENT MAP OPERATIONS (Student -> Grade) =====");

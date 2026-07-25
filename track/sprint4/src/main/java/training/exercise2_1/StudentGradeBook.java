@@ -82,7 +82,15 @@ public class StudentGradeBook {
         map.remove(name, grade);
     }
 
-    public List<Integer> getGradeList() {
+    private List<Integer> getGradeList() {
         return Arrays.stream(grades).boxed().toList();
+    }
+
+    public int getHighestGrade() {
+        return Collections.max(getGradeList());
+    }
+
+    public int getLowestGrade() {
+        return Collections.min(getGradeList());
     }
 }
