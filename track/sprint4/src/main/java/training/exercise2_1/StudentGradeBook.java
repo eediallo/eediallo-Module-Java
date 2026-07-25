@@ -24,6 +24,14 @@ public class StudentGradeBook {
         return new HashSet<>(getFirstNames());
     }
 
+    /**
+     * Maps each student's last name to their achieved grade.
+     * <p>
+     * <b>Note:</b> Because map keys must be unique, duplicate last names (e.g., twins)
+     * override earlier entries in the map.
+     *
+     * @return a {@link Map} linking student last names to their corresponding numerical grades
+     */
     public Map<String, Integer> getLastNameToGrade() {
         Map<String, Integer> lastNameToGrade = new HashMap<>();
 
@@ -34,6 +42,15 @@ public class StudentGradeBook {
         return lastNameToGrade;
     }
 
+    /**
+     * Creates a mapping of individual {@link Student} entities to their acheived grades.
+     * <p>
+     * Unlike {@link #getLastNameToGrade()}, using full {@link Student} objects as map keys
+     * safely supports sharing the same surname.
+     *
+     * @return a {@link Map} linking each {@link Student} to their corresponding numerical grades
+     *
+     */
     Map<Student, Integer> getStudentToGrade() {
         Map<Student, Integer> studentToGrade = new HashMap<>();
 
