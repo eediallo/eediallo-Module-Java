@@ -1,5 +1,7 @@
 package training.exercise2_1;
 
+import training.exercise2_2.Student;
+
 import java.util.*;
 
 public class StudentGradeBook {
@@ -22,14 +24,14 @@ public class StudentGradeBook {
         return new HashSet<>(getFirstNames());
     }
 
-    public Map<String, Integer> getLastNameToGrade(String[] lastNames, int[] grades) {
-        Map<String, Integer> lastNameToGrades = new HashMap<>();
+    public Map<String, Integer> getLastNameToGrade() {
+        Map<String, Integer> lastNameToGrade = new HashMap<>();
 
         for (int i = 0; i < lastNames.length; i++) {
-            lastNameToGrades.put(lastNames[i], grades[i]);
+            lastNameToGrade.put(lastNames[i], grades[i]);
         }
 
-        return lastNameToGrades;
+        return lastNameToGrade;
     }
 
     public static void main(String[] args) {
@@ -46,7 +48,7 @@ public class StudentGradeBook {
         System.out.println("Distinct First Names: " + distinctFirstNames);
 
 
-        Map<String, Integer> lastNameToGrades = studentsGrades.getLastNameToGrade(lastNames, grades);
+        Map<String, Integer> lastNameToGrades = studentsGrades.getLastNameToGrade();
         System.out.println("LastName to grade: " + lastNameToGrades);
     }
 
