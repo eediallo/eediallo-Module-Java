@@ -1,7 +1,5 @@
 package training.exercise2_2;
 
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Objects;
 
 /**
