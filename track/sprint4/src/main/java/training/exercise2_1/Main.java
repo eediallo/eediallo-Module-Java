@@ -25,7 +25,6 @@ public class Main {
         System.out.println("LastName to grade: " + lastNameToGrades);
 
         Map<Student, Integer> studentToGrade = studentGradeBook.getStudentToGrade();
-
         studentToGrade.forEach((student, grade) -> {
             System.out.println(student + " -> Grade: " + grade);
         });
