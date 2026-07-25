@@ -17,7 +17,7 @@ public class StudentGradeBook {
     }
 
     public List<String> getFirstNames() {
-        return Arrays.asList(firstNames);
+        return new ArrayList<>(Arrays.asList(firstNames));
     }
 
     public Set<String> getDistinctFirstNames() {
