@@ -25,12 +25,22 @@ public class Main {
         lastNameMapOperationsDemo(studentGradeBook, newJoiner, newJoinerGrade, leftStudent, leftStudentGrade, gradeToZero);
         studentMapOperationsDemo(studentGradeBook, newJoiner, newJoinerGrade, leftStudent, leftStudentGrade, gradeToZero);
         highestLowestGradeDemo(studentGradeBook);
+        studentFirstAndLastNamesHighestGradeDemo(studentGradeBook);
 
     }
 
+    private static void studentFirstAndLastNamesHighestGradeDemo(StudentGradeBook studentGradeBook){
+        System.out.println("====STUDENT WITH HIGHEST GRADE (First Name and Last Name=======");
+        Student studentWithHighestGrade = studentGradeBook.getStudentWithHighestGrade();
+        System.out.println("First Name: " + studentWithHighestGrade.getFirstName());
+        System.out.println("Last Name: " + studentWithHighestGrade.getLastName() + "\n");
+    }
+
     private static void highestLowestGradeDemo(StudentGradeBook studentGradeBook) {
+        System.out.println("====HIGHEST / LOWEST GRADES=======");
+
         int highestGrade = studentGradeBook.getHighestGrade();
-        System.out.println("Highest Grade: " + highestGrade + "\n");
+        System.out.println("Highest Grade: " + highestGrade);
 
         int lowestGrade = studentGradeBook.getLowestGrade();
         System.out.println("Highest Grade: " + lowestGrade + "\n");

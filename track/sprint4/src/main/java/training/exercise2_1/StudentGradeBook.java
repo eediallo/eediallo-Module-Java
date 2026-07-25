@@ -93,4 +93,16 @@ public class StudentGradeBook {
     public int getLowestGrade() {
         return Collections.min(getGradeList());
     }
+
+    public Student getStudentWithHighestGrade() {
+        int highestGrade = getHighestGrade();
+
+        for (Map.Entry<Student, Integer> entry : getStudentToGrade().entrySet()) {
+            if (entry.getValue() == highestGrade) {
+                return entry.getKey();
+            }
+        }
+
+        return null;
+    }
 }
