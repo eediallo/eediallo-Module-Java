@@ -29,6 +29,10 @@ public class Main {
         String leftStudentLastName = "Pappas";
         int leftStudentGrade = 35;
 
+        // Student whose grade needs to be set to zero data.
+        String gradeToZeroStudentFirstName = "Raquel";
+        String gradeToZeroStudentLastName = "Clarke";
+
         List<String> firstNamesList = studentGradeBook.getFirstNames();
         firstNamesList.add(newJoinerFirstName);
         firstNamesList.remove(leftStudentFirstName);
@@ -43,11 +47,13 @@ public class Main {
         Map<String, Integer> lastNameToGrades = studentGradeBook.getLastNameToGrade();
         lastNameToGrades.put(newJoinerLastName, newJoinerGrade);
         lastNameToGrades.remove(leftStudentLastName);
+        lastNameToGrades.put(gradeToZeroStudentLastName, 0);
         System.out.println("LastName to grade: " + lastNameToGrades);
 
         Map<Student, Integer> studentToGrade = studentGradeBook.getStudentToGrade();
         studentToGrade.put(new Student(newJoinerFirstName, newJoinerLastName), newJoinerGrade);
         studentToGrade.remove(new Student(leftStudentFirstName, leftStudentLastName));
+        studentToGrade.put(new Student(gradeToZeroStudentFirstName, gradeToZeroStudentLastName), 0);
         studentToGrade.forEach((student, grade) -> {
             System.out.println(student + " -> Grade: " + grade);
         });
