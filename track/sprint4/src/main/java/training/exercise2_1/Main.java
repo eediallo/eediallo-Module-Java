@@ -7,11 +7,6 @@ import java.util.Map;
 import java.util.Set;
 
 public class Main {
-
-    public static void removeStudent() {
-
-    }
-
     public static void main(String[] args) {
         String[] firstNames = {"Anuket", "Eryn", "Filip", "Raquel", "Eryn"};
         String[] lastNames = {"Hassan", "Doe", "Pappas", "Clarke", "Jones"};
@@ -19,43 +14,54 @@ public class Main {
 
         StudentGradeBook studentGradeBook = new StudentGradeBook(firstNames, lastNames, grades);
 
-        // New Joiner Data
-        String newJoinerFirstName = "Miriam";
-        String newJoinerLastName = "Barry";
+        Student newJoiner = new Student("Miriam", "Barry");
         int newJoinerGrade = 50;
 
-        // Left student data
-        String leftStudentFirstName = "Filip";
-        String leftStudentLastName = "Pappas";
+        Student leftStudent = new Student("Filip", "Pappas");
         int leftStudentGrade = 35;
 
-        // Student whose grade needs to be set to zero data.
-        String gradeToZeroStudentFirstName = "Raquel";
-        String gradeToZeroStudentLastName = "Clarke";
+        Student gradeToZero = new Student("Raquel", "Clarke");
 
-        List<String> firstNamesList = studentGradeBook.getFirstNames();
-        studentGradeBook.addStudentToCollection(newJoinerFirstName, firstNamesList);
-        firstNamesList.remove(leftStudentFirstName);
-        System.out.println("First Names: " + firstNamesList);
+        listOperationsDemo(studentGradeBook, newJoiner, leftStudent);
+        setOperationsDemo(studentGradeBook, newJoiner, leftStudent);
+        lastNameMapOperationsDemo(studentGradeBook, newJoiner, newJoinerGrade, leftStudent, leftStudentGrade, gradeToZero);
+        studentMapOperationsDemo(studentGradeBook, newJoiner, newJoinerGrade, leftStudent, leftStudentGrade, gradeToZero);
+    }
 
-        Set<String> distinctFirstNames = studentGradeBook.getDistinctFirstNames();
-        studentGradeBook.addStudentToCollection(newJoinerFirstName, distinctFirstNames);
-        distinctFirstNames.remove(leftStudentLastName);
-        System.out.println("Distinct First Names: " + distinctFirstNames);
-
-
-        Map<String, Integer> lastNameToGrades = studentGradeBook.getLastNameToGrade();
-        studentGradeBook.addStudentToCollection(newJoinerLastName, newJoinerGrade, lastNameToGrades);
-        studentGradeBook.removeStudentToCollection(leftStudentLastName, leftStudentGrade, lastNameToGrades);
-        lastNameToGrades.put(gradeToZeroStudentLastName, 0);
-        System.out.println("LastName to grade: " + lastNameToGrades);
-
+    private static void studentMapOperationsDemo(StudentGradeBook studentGradeBook, Student newJoiner, int newJoinerGrade, Student leftStudent, int leftStudentGrade, Student gradeToZero) {
+        System.out.println("=====STUDENT MAP OPERATIONS (Student -> Grade) =====");
         Map<Student, Integer> studentToGrade = studentGradeBook.getStudentToGrade();
-        studentGradeBook.addStudentToCollection(new Student(newJoinerFirstName, newJoinerLastName), newJoinerGrade, studentToGrade);
-        studentGradeBook.removeStudentToCollection(new Student(leftStudentFirstName, leftStudentLastName), leftStudentGrade, studentToGrade);
-        studentToGrade.put(new Student(gradeToZeroStudentFirstName, gradeToZeroStudentLastName), 0);
+        studentGradeBook.addStudentToCollection(newJoiner, newJoinerGrade, studentToGrade);
+        studentGradeBook.removeStudentToCollection(leftStudent, leftStudentGrade, studentToGrade);
+        studentToGrade.put(gradeToZero, 0);
         studentToGrade.forEach((student, grade) -> {
-            System.out.println(student + " -> Grade: " + grade);
+            System.out.println(" - " + student + " -> Grade: " + grade);
         });
+        System.out.println();
+    }
+
+    private static void lastNameMapOperationsDemo(StudentGradeBook studentGradeBook, Student newJoiner, int newJoinerGrade, Student leftStudent, int leftStudentGrade, Student gradeToZero) {
+        System.out.println("=====MAP OPERATIONS (Last Name -> Grade) =====");
+        Map<String, Integer> lastNameToGrades = studentGradeBook.getLastNameToGrade();
+        studentGradeBook.addStudentToCollection(newJoiner.getLastName(), newJoinerGrade, lastNameToGrades);
+        studentGradeBook.removeStudentToCollection(leftStudent.getLastName(), leftStudentGrade, lastNameToGrades);
+        lastNameToGrades.put(gradeToZero.getLastName(), 0);
+        System.out.println("Updated Map: " + lastNameToGrades + "\n");
+    }
+
+    private static void setOperationsDemo(StudentGradeBook studentGradeBook, Student newJoiner, Student leftStudent) {
+        System.out.println("=====SET OPERATIONS (Distinct First Names)=====");
+        Set<String> distinctFirstNames = studentGradeBook.getDistinctFirstNames();
+        studentGradeBook.addStudentToCollection(newJoiner.getFirstName(), distinctFirstNames);
+        distinctFirstNames.remove(leftStudent.getLastName());
+        System.out.println("Updated list: " + distinctFirstNames + "\n");
+    }
+
+    private static void listOperationsDemo(StudentGradeBook studentGradeBook, Student newJoiner, Student leftStudent) {
+        System.out.println("=====LIST OPERATIONS (First Names)=====");
+        List<String> firstNamesList = studentGradeBook.getFirstNames();
+        studentGradeBook.addStudentToCollection(newJoiner.getFirstName(), firstNamesList);
+        firstNamesList.remove(leftStudent.getFirstName());
+        System.out.println("Updated list: " + firstNamesList + "\n");
     }
 }
