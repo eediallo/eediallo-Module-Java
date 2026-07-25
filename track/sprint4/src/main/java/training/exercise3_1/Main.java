@@ -38,18 +38,19 @@ public class Main {
             System.out.println("SUCCESS: File Content:\n" + content);
         } catch (IOException e) {
             System.out.println("CAUGHT INVALID IO EXCEPTION: " + e.getMessage());
-        } catch (IllegalArgumentException e) {
+        } catch (InvalidFileFormatException e) {
             System.out.println("CAUGHT NULL ARGUMENT EXCEPTION: " + e.getMessage());
         }
 
     }
 
     private static void createDummyFiles(String validFile, String emptyFile) {
-        try {
-            FileWriter fileWriter = new FileWriter(validFile);
+        try (FileWriter fileWriter = new FileWriter(validFile)) {
             fileWriter.write("Hello, World!\nThis file is for testing purpose only");
-            fileWriter.close();
-
+        } catch (IOException e) {
+            System.err.println("Failed to create valid test file.");
+        }
+        try {
             // create empty file
             File empty = new File(emptyFile);
             empty.createNewFile();

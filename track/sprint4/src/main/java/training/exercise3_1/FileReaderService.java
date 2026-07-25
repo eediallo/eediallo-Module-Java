@@ -7,45 +7,27 @@ import java.io.IOException;
 
 public class FileReaderService {
 
-    public String readFile(String fileName) throws FileNotFoundException, IOException {
+    public String readFile(String fileName) throws IOException, InvalidFileFormatException {
 
         if (fileName == null) {
             throw new IllegalArgumentException("File name must not be null");
         }
 
         StringBuilder stringBuilder = new StringBuilder();
-        BufferedReader bufferedReader = null;
 
-        try {
-            FileReader reader = new FileReader(fileName);
-            bufferedReader = new BufferedReader(reader);
+        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(fileName))) {
             String line;
             while ((line = bufferedReader.readLine()) != null) {
                 stringBuilder.append(line).append(System.lineSeparator());
             }
-
-            if (stringBuilder.length() == 0) {
-                throw new InvalidFileFormatException("File content must not be empty");
-            }
-
-            return stringBuilder.toString();
-        } catch (FileNotFoundException e) {
-            System.out.println(e.getMessage());
-            throw e;
-        } catch (IOException e) {
-            System.out.println(e.getMessage());
-            throw e;
-        } catch (InvalidFileFormatException e) {
-            throw new RuntimeException(e);
-        } finally {
-            if (bufferedReader != null) {
-                try {
-                    bufferedReader.close();
-                } catch (IOException e) {
-                    System.out.println("Failed to close buffer: " + e.getMessage());
-                }
-            }
         }
 
+        if(stringBuilder.length() == 0){
+            throw  new InvalidFileFormatException("File can not be empty");
+        }
+
+        return stringBuilder.toString().trim();
+
     }
+
 }
