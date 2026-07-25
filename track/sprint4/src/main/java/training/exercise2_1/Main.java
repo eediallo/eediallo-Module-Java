@@ -24,24 +24,24 @@ public class Main {
         setOperationsDemo(studentGradeBook, newJoiner, leftStudent);
         lastNameMapOperationsDemo(studentGradeBook, newJoiner, newJoinerGrade, leftStudent, leftStudentGrade, gradeToZero);
         studentMapOperationsDemo(studentGradeBook, newJoiner, newJoinerGrade, leftStudent, leftStudentGrade, gradeToZero);
-        highestLowestGradeDemo(grades);
+        highestLowestGradeDemo(studentGradeBook.getGradeList());
 
     }
 
-    private static void highestLowestGradeDemo(int[] grades) {
-        int highestGrade = getHighestGrade(grades);
+    private static void highestLowestGradeDemo(List<Integer> gradeList) {
+        int highestGrade = getHighestGrade(gradeList);
         System.out.println("Highest Grade: " + highestGrade + "\n");
 
-        int lowestGrade = getLowestGrade(grades);
+        int lowestGrade = getLowestGrade(gradeList);
         System.out.println("Highest Grade: " + lowestGrade + "\n");
     }
 
-    private static int getHighestGrade(int[] grades) {
-        return Arrays.stream(grades).max().orElse(0);
+    private static int getHighestGrade(List<Integer> gradeList) {
+        return Collections.max(gradeList);
     }
 
-    private static int getLowestGrade(int[] grades) {
-        return Arrays.stream(grades).min().orElse(0);
+    private static int getLowestGrade(List<Integer> gradeList) {
+        return Collections.min(gradeList);
     }
 
 
