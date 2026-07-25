@@ -25,5 +25,14 @@ public class Student {
         return Objects.hash(firstName, lastName);
     }
 
+    Map<Student, Integer> getStudentToGrade(String[] firstNames, String[] lastNames, int[] grades) {
+        Map<Student, Integer> studentToGrade = new HashMap<>();
+
+        for (int i = 0; i < firstNames.length; i++) {
+            studentToGrade.put(new Student(firstNames[i], lastNames[i]), grades[i]);
+        }
+
+        return studentToGrade;
+    }
 
 }
