@@ -34,6 +34,17 @@ public class StudentGradeBook {
         return lastNameToGrade;
     }
 
+    Map<Student, Integer> getStudentToGrade() {
+        Map<Student, Integer> studentToGrade = new HashMap<>();
+
+        for (int i = 0; i < firstNames.length; i++) {
+            studentToGrade.put(new Student(firstNames[i], lastNames[i]), grades[i]);
+        }
+
+        return studentToGrade;
+    }
+
+
     public static void main(String[] args) {
         String[] firstNames = {"Anuket", "Eryn", "Filip", "Raquel", "Eryn"};
         String[] lastNames = {"Hassan", "Doe", "Pappas", "Clarke", "Jones"};
@@ -50,6 +61,12 @@ public class StudentGradeBook {
 
         Map<String, Integer> lastNameToGrades = studentGradeBook.getLastNameToGrade();
         System.out.println("LastName to grade: " + lastNameToGrades);
+
+        Map<Student, Integer> studentToGrade = studentGradeBook.getStudentToGrade();
+
+        studentToGrade.forEach((student, grade) -> {
+            System.out.println(student + ": " + grade);
+        });
     }
 
 }
