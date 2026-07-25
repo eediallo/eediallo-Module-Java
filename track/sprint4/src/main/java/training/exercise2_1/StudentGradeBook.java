@@ -73,4 +73,10 @@ public class StudentGradeBook {
     public <K> void addStudentToCollection(K name, int grade, Map<K, Integer> map) {
         map.put(name, grade);
     }
+
+    /**
+     * Remove a student to a map using a provided value as the key and their grade as the value*/
+    public <K> void removeStudentToCollection(K name, int grade, Map<K, Integer> map) {
+        map.remove(name, grade);
+    }
 }

@@ -46,13 +46,13 @@ public class Main {
 
         Map<String, Integer> lastNameToGrades = studentGradeBook.getLastNameToGrade();
         studentGradeBook.addStudentToCollection(newJoinerLastName, newJoinerGrade, lastNameToGrades);
-        lastNameToGrades.remove(leftStudentLastName);
+        studentGradeBook.removeStudentToCollection(leftStudentLastName, leftStudentGrade, lastNameToGrades);
         lastNameToGrades.put(gradeToZeroStudentLastName, 0);
         System.out.println("LastName to grade: " + lastNameToGrades);
 
         Map<Student, Integer> studentToGrade = studentGradeBook.getStudentToGrade();
         studentGradeBook.addStudentToCollection(new Student(newJoinerFirstName, newJoinerLastName), newJoinerGrade, studentToGrade);
-        studentToGrade.remove(new Student(leftStudentFirstName, leftStudentLastName));
+        studentGradeBook.removeStudentToCollection(new Student(leftStudentFirstName, leftStudentLastName), leftStudentGrade, studentToGrade);
         studentToGrade.put(new Student(gradeToZeroStudentFirstName, gradeToZeroStudentLastName), 0);
         studentToGrade.forEach((student, grade) -> {
             System.out.println(student + " -> Grade: " + grade);
