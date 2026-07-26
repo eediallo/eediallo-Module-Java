@@ -10,7 +10,7 @@ public class StudentGrade {
 
         int total = m.values().stream().mapToInt(Integer::intValue).sum();
 
-        List<String> studentList = m.keySet().stream().toList();
+        List<String> studentList = m.keySet().stream().filter(name -> name.startsWith("M")).toList();
 
         System.out.println("Sum of grades: " + total);
 
