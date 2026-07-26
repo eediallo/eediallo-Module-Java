@@ -9,19 +9,18 @@ public class Contract {
     private double carePrice;
     private int contractLengthYears;
 
-    public Contract(String customerName, int customerAge, LocalDate startDate, double carePrice, int contractLengthYears) {
+    public Contract(String customerName, int customerAge, LocalDate startDate, int contractLengthYears, double carePrice) {
+        this.customerName = customerName;
+        this.customerAge = customerAge;
+        this.startDate = startDate;
         if (contractLengthYears != 1 && contractLengthYears != 3) {
             throw new IllegalArgumentException("Contract length must be either 1 or 3");
         }
-
+        this.contractLengthYears = contractLengthYears;
         if (carePrice <= 0) {
             throw new IllegalArgumentException("Car price must be positive");
         }
-
-        this.customerName = customerName;
-        this.customerAge = customerAge;
         this.carePrice = carePrice;
-        this.startDate = startDate;
     }
 
     public String getCustomerName() {
