@@ -35,7 +35,7 @@ public class RentalSummary {
         return rentals.stream().mapToDouble(Rental::getInterestAmount).sum();
     }
 
-    public double getOutstandingRentalCount() {
+    public long getOutstandingRentalCount() {
         return rentals.stream().filter(r -> !r.isPaid()).count();
     }
 
@@ -47,7 +47,7 @@ public class RentalSummary {
         sb.append("=============================================\n");
         sb.append(String.format("Customer Name: %s\n", contract.getCustomerName()));
         sb.append(String.format("Customer Age: %d\n", contract.getCustomerAge()));
-        sb.append(String.format("Contract Dates: %s to %s\n", contract.getCustomerName()));
+        sb.append(String.format("Contract Dates: %s to %s\n", contract.getStartDate(), contract.getStartDate().plusYears(contract.getContractLengthYears())));
         sb.append("----------------------------------------------\n");
         sb.append(String.format("%-15s | %-12s |  %-12s |  %-8s\n", "Due Date", "Capital", "Interest", "Status"));
         sb.append("----------------------------------------------\n");
@@ -60,7 +60,7 @@ public class RentalSummary {
         sb.append(String.format("Next Due Rental         :%s\n", next != null ? next.getDueDate() : "None (All Paid)"));
         sb.append(String.format("Total Capital           :£%.2f\n", getTotalCapital()));
         sb.append(String.format("Total Interest           :£%.2f\n", getTotalInterest()));
-        sb.append(String.format("Total Interest           :%d\n", getOutstandingRentalCount()));
+        sb.append(String.format("Outstanding Interest           :%d\n", getOutstandingRentalCount()));
         sb.append("=============================================\n");
 
         return sb.toString();
