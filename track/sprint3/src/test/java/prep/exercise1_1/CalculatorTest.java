@@ -15,18 +15,7 @@ import static org.junit.jupiter.api.Assertions.*;
  * @see Calculator
  */
 class CalculatorTest {
-    private Calculator calculator;
-
-    /**
-     * Instantiates a fresh {@link Calculator} instance before each test case runs.
-     * <p>
-     * This guarantees complete test independence so state changes in one test
-     * never leak into another.
-     */
-    @BeforeEach
-    void setUp() {
-        calculator = new Calculator();
-    }
+    private Calculator calculator = new Calculator();
 
     /**
      * Verifies that the add method correctly adds two integers.
