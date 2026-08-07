@@ -23,7 +23,7 @@ class CalculatorTest {
     @Test
     @DisplayName("Should add two numbers")
     void testAdd() {
-        assertEquals(10, calculator.add(5, 5), "5 + 5 = 0");
+        assertEquals(10, calculator.add(5, 5), "5 + 5 = 10");
     }
 
     /**
