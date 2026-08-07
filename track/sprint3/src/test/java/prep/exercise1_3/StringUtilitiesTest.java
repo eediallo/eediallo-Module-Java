@@ -18,16 +18,7 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 class StringUtilitiesTest {
 
-    private StringUtilities stringUtilities;
-
-    /**
-     * Instantiates a fresh {@link StringUtilities}* instance prior to running
-     * each test case.
-     */
-    @BeforeEach
-    void setup() {
-        stringUtilities = new StringUtilities();
-    }
+    private StringUtilities stringUtilities = new StringUtilities();
 
     /**
      * Verifies that {@link StringUtilities#isPalindrome(String)} correctly identifies
