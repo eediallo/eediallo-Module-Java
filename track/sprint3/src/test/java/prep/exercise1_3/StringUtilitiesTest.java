@@ -26,7 +26,11 @@ class StringUtilitiesTest {
      */
     @Test
     void testisPalindrome() {
-        assertAll(() -> assertTrue(stringUtilities.isPalindrome("civic"), "civic is a Palindrome"), () -> assertTrue(stringUtilities.isPalindrome("radar")), () -> assertTrue(stringUtilities.isPalindrome("level")), () -> stringUtilities.isPalindrome("rotor"), () -> assertTrue(stringUtilities.isPalindrome("madam")));
+        assertTrue(stringUtilities.isPalindrome("civic"), "'civic' is a isPalindrome");
+        assertTrue(stringUtilities.isPalindrome("radar"), "'radar' is a isPalindrome");
+        assertTrue(stringUtilities.isPalindrome("level"), "'level' is a isPalindrome");
+        assertTrue(stringUtilities.isPalindrome("rotor"), "'rotor' is a isPalindrome");
+        assertTrue(stringUtilities.isPalindrome("madam"), "'madam' is a isPalindrome");
     }
 
     /**
@@ -35,7 +39,8 @@ class StringUtilitiesTest {
      */
     @Test
     void testisNotPalindrome() {
-        assertAll(() -> assertFalse(stringUtilities.isPalindrome("solution")), () -> assertFalse(stringUtilities.isPalindrome("mental")));
+        assertFalse(stringUtilities.isPalindrome("solution"), "'solution' is not a Palindrome");
+        assertFalse(stringUtilities.isPalindrome("mental"), "'mental' is a not Palindrome");
     }
 
     /**
