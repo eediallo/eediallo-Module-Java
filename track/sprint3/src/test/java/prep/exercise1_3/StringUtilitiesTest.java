@@ -54,8 +54,8 @@ class StringUtilitiesTest {
     }
 
     /**
-     * Tests how {@link StringUtilities#splitCommaSeparatedLine(String)} handles a string
-     * ending with comma.
+     * Tests that if a comma is the last element in a list, then
+     * it is ignored and does not create an empty trailing item.
      */
     @Test
     void testSingleItemCommaSeparatedLine() {
